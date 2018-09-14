@@ -92,4 +92,71 @@ public class BinaryTree {
         return 1 + size(node.left) + size(node.right);
     }
 
+    public int minValue() {
+
+        BTNode temp = this.root;
+
+        if (temp == null) {
+            return 0;
+        }
+
+        while (temp.left != null) {
+            temp = temp.left;
+        }
+
+        return temp.value;
+    }
+
+    public int maxValue() {
+
+
+        BTNode temp = this.root;
+
+        if (temp == null) {
+            return 0;
+        }
+
+        while (temp.right != null) {
+            temp = temp.right;
+        }
+
+        return temp.value;
+    }
+
+    public int maxDepth() {
+
+        BTNode temp = this.root;
+        int cont = 0;
+
+        if (temp == null) {
+            return cont;
+        }
+
+        int left = maxDepth(temp.left, cont++);
+        int right = maxDepth(temp.right, cont++);
+
+        if (left > right) {
+            return left;
+        } else {
+            return right;
+        }
+    }
+
+    private int maxDepth(BTNode node, int cont) {
+
+        if (node == null) {
+            return cont;
+        }
+
+        int left = maxDepth(node.left, cont++);
+        int right = maxDepth(node.right, cont++);
+
+        if (left > right) {
+            return left;
+        } else {
+            return right;
+        }
+
+    }
+
 }
