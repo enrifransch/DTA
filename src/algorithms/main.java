@@ -6,6 +6,5 @@ public class main {
 
     public static void main(String[] args) {
 
-       Algorithms.cycle(9);
     }
 }

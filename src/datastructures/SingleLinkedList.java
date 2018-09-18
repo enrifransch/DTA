@@ -1,5 +1,6 @@
 package datastructures;
 
+import java.util.HashSet;
 import java.util.NoSuchElementException;
 
 public class SingleLinkedList {
@@ -57,6 +58,52 @@ public class SingleLinkedList {
 
         System.out.println("The size of the list is: " + cont);
     }
+
+    public Node deleteDuplicates(Node a) {
+
+        Node temp = a;
+
+        if (temp.next == null) return temp;
+
+        while(temp.next != null) {
+
+            Node iter = temp.next;
+
+            while (temp.value == iter.value) {
+                iter = iter.next;
+
+                if (iter == null) break;
+            }
+
+            temp.next = iter;
+
+            if (iter == null) break;
+
+            temp = temp.next;
+
+        }
+
+        return a;
+    }
+
+    public Node detectCycle(Node a) {
+
+        HashSet<Integer> hash = new HashSet<>();
+
+        Node temp = a;
+
+        if (a == null) return null;
+
+        while(a!=null) {
+            if (hash.contains(a.value)) return a;
+            hash.add(a.value);
+            a = a.next;
+        }
+
+        return null;
+
+    }
+
 
     public void print() {
         Node tempNode = this.head;

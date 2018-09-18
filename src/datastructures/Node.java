@@ -2,8 +2,8 @@ package datastructures;
 
 public class Node {
 
-    private Node next;
-    private int value;
+    public Node next;
+    public int value;
 
     public Node(int value) {
         this.next = null;

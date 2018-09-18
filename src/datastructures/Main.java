@@ -4,31 +4,26 @@ public class Main {
 
     public static void main(String[] args) {
 
-        BinaryTree tree = new BinaryTree();
+        SingleLinkedList list = new SingleLinkedList();
 
-        tree.insert(5);
-        tree.insert(8);
-        tree.insert(9);
-        tree.insert(6);
-//        tree.insert(3);
-//        tree.insert(2);
-//        tree.insert(90);
-//        tree.insert(7);
-//        tree.insert(9);
-//        tree.insert(7);
-//        tree.insert(9);
-//        tree.insert(7);
-//        tree.insert(9);
+        list.add(2);
+        list.add(3);
+        list.add(8);
+        list.add(10);
+        list.add(11);
+        list.add(12);
+        list.add(8);
+        list.add(15);
+        list.add(18);
+        list.add(19);
 
-        int size = tree.size();
-        int min = tree.minValue();
-        int max = tree.maxValue();
-        int depth = tree.maxDepth();
+        Node cycle = list.detectCycle(list.getFirst());
 
-        System.out.println(size);
-        System.out.println(min);
-        System.out.println(max);
-        System.out.println(depth);
+        if (cycle == null) {
+            System.out.println(cycle);
+        } else {
+            System.out.println(cycle.value);
+        }
 
     }
 }
